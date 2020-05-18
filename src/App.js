@@ -55,11 +55,7 @@ const Footer = () => (
 )
 
 const CreateNew = (props) => {
-  // const [content, setContent] = useState('')
-  // const [author, setAuthor] = useState('')
-  // const [info, setInfo] = useState('')
   const history = useHistory()
-
   const content = useField('content')
   const author = useField('author')
   const info = useField('info')
@@ -81,6 +77,12 @@ const CreateNew = (props) => {
     history.push('/')
   }
 
+  const handleReset = (e) => {
+    content.reset()
+    author.reset()
+    info.reset()
+  }
+
   return (
     <div>
       <h2>create a new anecdote</h2>
@@ -99,6 +101,7 @@ const CreateNew = (props) => {
         </div>
         <button>create</button>
       </form>
+      <button onClick={handleReset}>reset</button>
     </div>
   )
 }
